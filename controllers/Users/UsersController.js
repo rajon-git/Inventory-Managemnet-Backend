@@ -9,8 +9,10 @@ const UserModel = require("../../models/Users/UsersModel");
 const UserCreateService = require("../../services/user/UserCreateService");
 
 // Users Registration
-exports.Registration = async (req, res) => {
+const Registration = async (req, res) => {
     let result = await UserCreateService(req, UserModel);
     // user Response
     res.status(201).json(result);
   };
+
+module.exports ={Registration,}
