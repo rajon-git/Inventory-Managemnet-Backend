@@ -14,9 +14,6 @@ const Registration = async (req, res) => {
     // user Response
     res.status(201).json(result);
   };
-//user login 
-const Login=async(req,res)=>{
-    let Result=await UserLoginService(req,DataModel)
-    res.status(200).json(Result)
 
-module.exports ={Registration,Login}
+
+module.exports ={Registration}
