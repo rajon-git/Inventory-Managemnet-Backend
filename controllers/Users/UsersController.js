@@ -7,6 +7,7 @@ const UserModel = require("../../models/Users/UsersModel");
 
 // Service module
 const UserCreateService = require("../../services/user/UserCreateService");
+const UserLoginService = require("../../services/user/UserLoginService");
 
 // Users Registration
 const Registration = async (req, res) => {
@@ -15,4 +16,12 @@ const Registration = async (req, res) => {
     res.status(201).json(result);
   };
 
-module.exports ={Registration,}
+//users login
+
+const Login = async (req, res) => {
+  let result = await UserLoginService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+module.exports ={Registration,Login}
