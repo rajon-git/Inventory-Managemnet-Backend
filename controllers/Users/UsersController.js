@@ -30,6 +30,36 @@ const Login = async (req, res) => {
   res.status(201).json(result);
 };
 
-module.exports ={Registration,Login}
+const Read = async (req, res) => {
+  let result = await UserDetailsService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+const Update = async (req, res) => {
+  let result = await UserUpdateService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+const VerifyEmail = async (req, res) => {
+  let result = await UserVerifyEmailService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+const VerifyOtp = async (req, res) => {
+  let result = await UserOtpVerifyService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+const ResetPassword = async (req, res) => {
+  let result = await UserResetPassService(req, UserModel);
+  // user Response
+  res.status(201).json(result);
+};
+
+module.exports ={Registration,Login,Read, Update, VerifyEmail, VerifyOtp, ResetPassword}
 
 
