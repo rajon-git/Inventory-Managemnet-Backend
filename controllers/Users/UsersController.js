@@ -8,6 +8,12 @@ const UserModel = require("../../models/Users/UsersModel");
 // Service module
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserLoginService = require("../../services/user/UserLoginService");
+const UserDetailsService = require("../../services/user/UserDetailsService");
+const UserOtpVerifyService = require("../../services/user/UserOtpVerifyService");
+const UserResetPassService = require("../../services/user/UserResetPassService");
+const UserUpdateService = require("../../services/user/UserUpdateService");
+const UserVerifyEmailService = require("../../services/user/UserVerifyEmailService");
+
 
 // Users Registration
 const Registration = async (req, res) => {
