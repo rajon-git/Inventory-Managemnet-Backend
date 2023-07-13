@@ -16,6 +16,7 @@ const Registration = async (req, res) => {
     res.status(201).json(result);
   };
 
+<<<<<<< HEAD
 //users login
 
 const Login = async (req, res) => {
@@ -25,3 +26,7 @@ const Login = async (req, res) => {
 };
 
 module.exports ={Registration,Login}
+=======
+
+module.exports ={Registration}
+>>>>>>> c0fbac7cfbb3e15236aaf7379a8b8385337a4500
