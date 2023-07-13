@@ -1,7 +1,7 @@
 /**
- * Date: 13/04/2023
+ * Date: 13/07/2023
  * Subject: Inventory Project services
- * Auth: Ismile Sardar
+ * Auth: Rajon
  */
 
 const OtpModel = require("../../models/Users/OTPSModel");
