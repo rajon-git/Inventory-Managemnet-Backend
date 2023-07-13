@@ -4,7 +4,7 @@
  * Auth: Rajon
  */
 const UserModel = require("../../models/Users/UsersModel");
-
+const OTPSModel = require("../../models/Users/OTPSModel");
 // Service module
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserLoginService = require("../../services/user/UserLoginService");
@@ -13,6 +13,7 @@ const UserOtpVerifyService = require("../../services/user/UserOtpVerifyService")
 const UserResetPassService = require("../../services/user/UserResetPassService");
 const UserUpdateService = require("../../services/user/UserUpdateService");
 const UserVerifyEmailService = require("../../services/user/UserVerifyEmailService");
+
 
 
 // Users Registration
@@ -36,7 +37,7 @@ const Read = async (req, res) => {
   res.status(200).json(result);
 };
 
-const Update = async (req, res) => {
+const UpdateProfile = async (req, res) => {
   let result = await UserUpdateService(req, UserModel);
   // user Response
   res.status(200).json(result);
@@ -49,7 +50,7 @@ const VerifyEmail = async (req, res) => {
 };
 
 const VerifyOtp = async (req, res) => {
-  let result = await UserOtpVerifyService(req, UserModel);
+  let result = await UserOtpVerifyService(req, OTPSModel);
   // user Response
   res.status(200).json(result);
 };
@@ -60,6 +61,6 @@ const ResetPassword = async (req, res) => {
   res.status(200).json(result);
 };
 
-module.exports ={Registration,Login,Read, Update, VerifyEmail, VerifyOtp, ResetPassword}
+module.exports ={Registration,Login,Read, UpdateProfile, VerifyEmail, VerifyOtp, ResetPassword}
 
 

@@ -4,9 +4,9 @@
  * Auth: Rajon
  */
 
-const OtpModel = require("../../models/Users/OTPSModel");
-const SendEmail = require("../../utilities/SendEmail");
 
+const SendEmail = require("../../utilities/SendEmail");
+const OTPSModel=require("../../models/Users/OTPSModel");
 // // e-mail
 // const sgMail = require("@sendgrid/mail");
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -15,24 +15,22 @@ const UserVerifyEmailService = async (request, dataModel) => {
   try {
     //Email query
     const { email } = request.params;
-    let otpCode = Math.floor(100000 + Math.random() * 900000);
+    let OTPCode = Math.floor(100000 + Math.random() * 900000);
 
     let userCount = await dataModel.aggregate([
       { $match: {UserEmail: email } },
       { $count: "total" },
     ]);
 
-    if (userCount.length === 0) {
-      return { status: "fail", data: "User not found!" };
-    }
+    if (userCount.length >0) 
 
     //otp create
-    await OtpModel.create({ UserEmail:email, otp: otpCode });
+    await OTPSModel.create({ UserEmail:email, otp: OTPCode });
 
     //send email
     let sendEmail = await SendEmail(
       email,
-      `Your PIN Code is => ${otpCode}`,
+      `Your PIN Code is => ${OTPCode}`,
       "Inventory PIN Verification"
     );
 
