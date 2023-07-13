@@ -11,7 +11,7 @@ const UserResetPassService = async (request, dataModel) => {
   let status = 1;
   try {
     let otpCount = await OtpModel.aggregate([
-      { $match: { email, otp, status } },
+      { $match: { UserEmail:email, otp, status } },
       { $count: "total" },
     ]);
 
