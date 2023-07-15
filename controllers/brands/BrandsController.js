@@ -11,20 +11,20 @@ const UpdateService = require("../../services/common/UpdateService");
 
 
 // create brand
-const CreateBrand = async (req, res) => {
-    let result = await CreateService(req, UserModel);
+exports.CreateBrand = async (req, res) => {
+    let result = await CreateService(req, BrandModel);
     // user Response
     res.status(201).json(result);
   };
 
 // UpdateBrand
-const UpdateBrand = async (req, res) => {
+exports.UpdateBrand = async (req, res) => {
     let result = await UpdateService(req, BrandModel);
     res.status(200).json(result);
   };
 
 // BrandList
-const BrandList = async (req, res) => {
+exports.BrandList = async (req, res) => {
     let SearchRex = { $regex: req.params.searchKeyword, $options: "i" };
     let SearchArray = [{ Name: SearchRex }];
     let result = await ListService(req, BrandModel, SearchArray);
@@ -32,9 +32,9 @@ const BrandList = async (req, res) => {
   };
 
 // BrandDropDown
-const BrandDropDown = async (req, res) => {
+exports.BrandDropDown = async (req, res) => {
     let result = await DropDownService(req, BrandModel, { _id: 1, Name: 1 });
     res.status(200).json(result);
   };
 
-module.exporst= {BrandDropDown,BrandList,UpdateBrand,CreateBrand}
+// module.exporst= {BrandDropDown,BrandList,UpdateBrand,CreateBrand}
