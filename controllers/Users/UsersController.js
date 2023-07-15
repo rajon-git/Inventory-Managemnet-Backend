@@ -4,7 +4,7 @@
  * Auth: Rajon
  */
 const UserModel = require("../../models/Users/UsersModel");
-const OTPModel = require("../../models/Users/OTPSModel");
+const OTPSModel = require("../../models/Users/OTPSModel");
 // Service module
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserLoginService = require("../../services/user/UserLoginService");
@@ -50,7 +50,7 @@ const VerifyEmail = async (req, res) => {
 };
 
 const VerifyOtp = async (req, res) => {
-  let result = await UserOtpVerifyService(req, OTPModel);
+  let result = await UserOtpVerifyService(req, OTPSModel);
   // user Response
   res.status(200).json(result);
 };

@@ -4,13 +4,13 @@
  * Auth: Rajon
  */
 
-const OtpModel = require("../../models/Users/OTPSModel");
+const OTPSModel = require("../../models/Users/OTPSModel");
 
 const UserResetPassService = async (request, dataModel) => {
   let { email, otp, password } = request.body;
   let status = 1;
   try {
-    let otpCount = await OtpModel.aggregate([
+    let otpCount = await OTPSModel.aggregate([
       { $match: { UserEmail:email, otp, status } },
       { $count: "total" },
     ]);

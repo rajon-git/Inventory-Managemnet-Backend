@@ -6,7 +6,7 @@
 
 
 const SendEmail = require("../../utilities/SendEmail");
-const OTPModel=require("../../models/Users/OTPSModel");
+const OTPSModel=require("../../models/Users/OTPSModel");
 // // e-mail
 // const sgMail = require("@sendgrid/mail");
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -25,7 +25,7 @@ const UserVerifyEmailService = async (request, dataModel) => {
     if (userCount.length >0) 
 
     //otp create
-    await OTPModel.create({ UserEmail:email, otp: OTPCode });
+    await OTPSModel.create({ UserEmail:email, otp: OTPCode });
 
     //send email
     let sendEmail = await SendEmail(
