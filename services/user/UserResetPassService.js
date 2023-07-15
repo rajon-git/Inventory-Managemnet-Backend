@@ -16,7 +16,7 @@ const UserResetPassService = async (request, dataModel) => {
     ]);
 
     if (otpCount.length > 0) {
-      let updatePass = await dataModel.updateOne({ email }, { password });
+      let updatePass = await dataModel.updateOne({ UserEmail:email }, { password });
       return { status: "success", data: updatePass };
     } else {
       return { status: "fail", data: "Invalid Request" };
