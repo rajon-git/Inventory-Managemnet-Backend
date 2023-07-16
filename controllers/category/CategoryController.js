@@ -1,8 +1,4 @@
-/**
- * Date: 15/04/2023
- * Subject: Inventory Project Controllers
- * Auth: Ismile Satdar
- */
+
 
 //data base import
 const { mongoose } = require("mongoose");
