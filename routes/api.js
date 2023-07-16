@@ -6,7 +6,8 @@ const {Registration,Login,Read,UpdateProfile,VerifyEmail,VerifyOtp,ResetPassword
 // Brand Controller modules
 const BrandsControllers = require('../controllers/brands/BrandsController');
 const CategoriesControllers=require("../controllers/category/CategoryController");
-const CustomersControllers=require("../controllers/customers/CustomerControllers")
+const CustomersControllers=require("../controllers/customers/CustomerControllers");
+const SuppliersControllers=require("../controllers/Suppliers/SuppliersController")
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -39,4 +40,12 @@ router.get("/customersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware
 router.get("/customersDropDown",AuthVerifyMiddleware,CustomersControllers.CustomersDropDown);
 // router.get("/deleteCustomers/:id",AuthVerifyMiddleware,CustomersControllers.DeleteCustomers);
 // router.get("/customersDetails/:id",AuthVerifyMiddleware,CustomersControllers.CustomersDetails);
+
+// Suppliers Routing
+router.post("/createSuppliers",AuthVerifyMiddleware,SuppliersControllers.CreateSuppliers);
+router.post("/updateSuppliers/:id",AuthVerifyMiddleware,SuppliersControllers.UpdateSuppliers);
+router.get("/suppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,SuppliersControllers.SuppliersList);
+router.get("/suppliersDropDown",AuthVerifyMiddleware,SuppliersControllers.SuppliersDropDown);
+// router.get("/deleteSupplier/:id",AuthVerifyMiddleware,SuppliersControllers.DeleteSuppliers);
+// router.get("/supplierDetails/:id",AuthVerifyMiddleware,SuppliersControllers.SuppliersDetails);
 module.exports = router;
