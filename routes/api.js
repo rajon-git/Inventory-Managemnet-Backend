@@ -5,7 +5,8 @@ const AuthVerifyMiddleware =require("../middlewares/AuthVerifyMiddleware");
 const {Registration,Login,Read,UpdateProfile,VerifyEmail,VerifyOtp,ResetPassword}= require ("../controllers/Users/UsersController")
 // Brand Controller modules
 const BrandsControllers = require('../controllers/brands/BrandsController');
-const CategoriesControllers=require("../controllers/category/CategoryController")
+const CategoriesControllers=require("../controllers/category/CategoryController");
+const CustomersControllers=require("../controllers/customers/CustomerControllers")
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -28,7 +29,14 @@ router.post("/createCategories",AuthVerifyMiddleware,CategoriesControllers.Creat
 router.post("/updateCategories/:id",AuthVerifyMiddleware,CategoriesControllers.UpdateCategories);
 router.get("/categoriesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CategoriesControllers.CategoriesList);
 router.get("/categoriesDropDown",AuthVerifyMiddleware,CategoriesControllers.CategoriesDropDown);
-router.get("/deleteCategories/:id",AuthVerifyMiddleware,CategoriesControllers.DeleteCategories);
-router.get("/categoriesDetails/:id",AuthVerifyMiddleware,CategoriesControllers.CategoriesDetails);
+// router.get("/deleteCategories/:id",AuthVerifyMiddleware,CategoriesControllers.DeleteCategories);
+// router.get("/categoriesDetails/:id",AuthVerifyMiddleware,CategoriesControllers.CategoriesDetails);
 
+// Customers Routing
+router.post("/createCustomers",AuthVerifyMiddleware,CustomersControllers.CreateCustomers);
+router.post("/updateCustomers/:id",AuthVerifyMiddleware,CustomersControllers.UpdateCustomers);
+router.get("/customersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CustomersControllers.CustomersList);
+router.get("/customersDropDown",AuthVerifyMiddleware,CustomersControllers.CustomersDropDown);
+// router.get("/deleteCustomers/:id",AuthVerifyMiddleware,CustomersControllers.DeleteCustomers);
+// router.get("/customersDetails/:id",AuthVerifyMiddleware,CustomersControllers.CustomersDetails);
 module.exports = router;
