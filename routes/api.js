@@ -9,6 +9,7 @@ const CategoriesControllers=require("../controllers/category/CategoryController"
 const CustomersControllers=require("../controllers/customers/CustomerControllers");
 const SuppliersControllers=require("../controllers/Suppliers/SuppliersController");
 const ExpenseType=require("../controllers/expense/expenseTypeControllers")
+const Expenses=require("../controllers/expense/expenseControllers")
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -25,6 +26,7 @@ router.post("/createBrand",AuthVerifyMiddleware,BrandsControllers.CreateBrand);
 router.post("/updateBrand/:id",AuthVerifyMiddleware,BrandsControllers.UpdateBrand);
 router.get("/brandList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,BrandsControllers.BrandList);
 router.get("/brandDropDown",AuthVerifyMiddleware,BrandsControllers.BrandDropDown);
+
 
 // Categories Routing
 router.post("/createCategories",AuthVerifyMiddleware,CategoriesControllers.CreateCategories);
@@ -57,5 +59,13 @@ router.get("/expenseTypeList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddlewa
 router.get("/expenseTypeDropDown",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDropDown);
 //router.get("/deleteExpenseType/:id",AuthVerifyMiddleware,ExpenseType.DeleteExpenseTypes);
 //router.get("/expenseTypeDetails/:id",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDetails);
+
+// Expense Routing
+router.post("/createExpense",AuthVerifyMiddleware,Expenses.CreateExpense);
+router.post("/updateExpense/:id",AuthVerifyMiddleware,Expenses.UpdateExpense);
+router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,Expenses.ExpenseList);
+// router.get("/deleteExpense/:id",AuthVerifyMiddleware,Expenses.DeleteExpense);
+// router.get("/expenseDetails/:id",AuthVerifyMiddleware,Expenses.ExpenseDetails);
+
 
 module.exports = router;
