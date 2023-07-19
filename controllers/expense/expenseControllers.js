@@ -24,7 +24,11 @@ exports.CreateExpense = async (req, res) => {
 //   res.status(200).json(result);
 // };
 
-
+// UpdateExpense
+exports.UpdateExpense = async (req, res) => {
+    let result = await UpdateService(req, ExpenseModel);
+    res.status(200).json(result);
+  };
 
 
 
