@@ -10,6 +10,7 @@ const CustomersControllers=require("../controllers/customers/CustomerControllers
 const SuppliersControllers=require("../controllers/Suppliers/SuppliersController");
 const ExpenseType=require("../controllers/expense/expenseTypeControllers")
 const Expenses=require("../controllers/expense/expenseControllers")
+const ProductController=require("../controllers/Product/productControllers")
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -67,5 +68,11 @@ router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,E
 // router.get("/deleteExpense/:id",AuthVerifyMiddleware,Expenses.DeleteExpense);
 // router.get("/expenseDetails/:id",AuthVerifyMiddleware,Expenses.ExpenseDetails);
 
-
+// Product Routing
+router.post("/createProduct",AuthVerifyMiddleware,ProductController.CreateProduct);
+router.post("/updateProduct/:id",AuthVerifyMiddleware,ProductController.UpdateProduct);
+// router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductController.ProductList);
+// router.get("/deleteProduct/:id",AuthVerifyMiddleware,ProductController.DeleteProduct);
+// router.get("/productDetails/:id",AuthVerifyMiddleware,ProductController.ProductDetails);
+// router.get("/productDropDown",AuthVerifyMiddleware,ProductController.ProductsDropDown);
 module.exports = router;
