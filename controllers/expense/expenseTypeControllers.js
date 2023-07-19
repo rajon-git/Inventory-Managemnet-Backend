@@ -36,7 +36,11 @@ exports.ExpenseTypesList = async (req, res) => {
     res.status(200).json(result);
   };
 
-
+// ExpenseTypes DropDown
+exports.ExpenseTypesDropDown = async (req, res) => {
+    let result = await DropDownService(req, ExpenseTypesModel, { _id: 1, Name: 1 });
+    res.status(200).json(result);
+  };
 
 
 
