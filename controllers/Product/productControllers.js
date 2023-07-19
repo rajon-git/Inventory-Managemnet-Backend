@@ -32,3 +32,45 @@ exports.CreateProduct = async (req, res) => {
     res.status(200).json(result);
   };
   
+
+
+  // Product List
+  exports.ProductList = async (req, res) => {
+    let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
+    let SearchArray = [
+      { Name: SearchRgx },
+      { Unit: SearchRgx },
+      { Details: SearchRgx },
+      { "brands.Name": SearchRgx },
+      { "categories.Name": SearchRgx },
+    ];
+    let JoinStage1 = {
+      $lookup: {
+        from: "brands",
+        localField: "BrandID",
+        foreignField: "_id",
+        as: "brands",
+      },
+    };
+  
+    let JoinStage2 = {
+      $lookup: {
+        from: "categories",
+        localField: "CategoryID",
+        foreignField: "_id",
+        as: "categories",
+      },
+    };
+  
+    let result = await ListTwoJoinService(
+      req,
+      ProductModel,
+      SearchArray,
+      JoinStage1,
+      JoinStage2
+    );
+  
+    res.status(200).json(result);
+  };
+  
+  
