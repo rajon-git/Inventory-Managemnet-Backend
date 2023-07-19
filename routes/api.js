@@ -71,7 +71,7 @@ router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,E
 // Product Routing
 router.post("/createProduct",AuthVerifyMiddleware,ProductController.CreateProduct);
 router.post("/updateProduct/:id",AuthVerifyMiddleware,ProductController.UpdateProduct);
-// router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductController.ProductList);
+router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductController.ProductList);
 // router.get("/deleteProduct/:id",AuthVerifyMiddleware,ProductController.DeleteProduct);
 // router.get("/productDetails/:id",AuthVerifyMiddleware,ProductController.ProductDetails);
 // router.get("/productDropDown",AuthVerifyMiddleware,ProductController.ProductsDropDown);
