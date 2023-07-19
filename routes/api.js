@@ -7,7 +7,8 @@ const {Registration,Login,Read,UpdateProfile,VerifyEmail,VerifyOtp,ResetPassword
 const BrandsControllers = require('../controllers/brands/BrandsController');
 const CategoriesControllers=require("../controllers/category/CategoryController");
 const CustomersControllers=require("../controllers/customers/CustomerControllers");
-const SuppliersControllers=require("../controllers/Suppliers/SuppliersController")
+const SuppliersControllers=require("../controllers/Suppliers/SuppliersController");
+const ExpenseType=require("../controllers/expense/expenseTypeControllers")
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -48,4 +49,13 @@ router.get("/suppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware
 router.get("/suppliersDropDown",AuthVerifyMiddleware,SuppliersControllers.SuppliersDropDown);
 // router.get("/deleteSupplier/:id",AuthVerifyMiddleware,SuppliersControllers.DeleteSuppliers);
 // router.get("/supplierDetails/:id",AuthVerifyMiddleware,SuppliersControllers.SuppliersDetails);
+
+// Expense Types Routing
+router.post("/createExpenseType",AuthVerifyMiddleware,ExpenseType.CreateExpenseTypes);
+router.post("/updateExpenseType/:id",AuthVerifyMiddleware,ExpenseType.UpdateExpenseTypes);
+router.get("/expenseTypeList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ExpenseType.ExpenseTypesList);
+router.get("/expenseTypeDropDown",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDropDown);
+//router.get("/deleteExpenseType/:id",AuthVerifyMiddleware,ExpenseType.DeleteExpenseTypes);
+//router.get("/expenseTypeDetails/:id",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDetails);
+
 module.exports = router;
