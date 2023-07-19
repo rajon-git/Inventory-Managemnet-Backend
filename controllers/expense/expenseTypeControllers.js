@@ -22,26 +22,16 @@ exports.CreateExpenseTypes = async (req, res) => {
   res.status(201).json(result);
 };
 
-
-
 // Update ExpenseTypes
 exports.UpdateExpenseTypes = async (req, res) => {
-  let result = await UpdateService(req, ExpenseTypesModel);
-  res.status(200).json(result);
-};
+    let result = await UpdateService(req, ExpenseTypesModel);
+    res.status(200).json(result);
+  };
 
-// ExpenseTypes List
-exports.ExpenseTypesList = async (req, res) => {
-  let SearchRex = { $regex: req.params.searchKeyword, $options: "i" };
-  let SearchArray = [{ Name: SearchRex }];
-  let result = await ListService(req, ExpenseTypesModel, SearchArray);
-  res.status(200).json(result);
-};
 
-// ExpenseTypes DropDown
-exports.ExpenseTypesDropDown = async (req, res) => {
-  let result = await DropDownService(req, ExpenseTypesModel, { _id: 1, Name: 1 });
-  res.status(200).json(result);
-};
+
+
+
+
 
 
