@@ -28,7 +28,13 @@ exports.UpdateExpenseTypes = async (req, res) => {
     res.status(200).json(result);
   };
 
-
+// ExpenseTypes List
+exports.ExpenseTypesList = async (req, res) => {
+    let SearchRex = { $regex: req.params.searchKeyword, $options: "i" };
+    let SearchArray = [{ Name: SearchRex }];
+    let result = await ListService(req, ExpenseTypesModel, SearchArray);
+    res.status(200).json(result);
+  };
 
 
 
