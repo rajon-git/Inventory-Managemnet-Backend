@@ -26,3 +26,9 @@ exports.CreateProduct = async (req, res) => {
   res.status(201).json(result);
 };
 
+  // Update Product
+  exports.UpdateProduct = async (req, res) => {
+    let result = await UpdateService(req, ProductModel);
+    res.status(200).json(result);
+  };
+  
