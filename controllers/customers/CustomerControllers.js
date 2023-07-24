@@ -10,8 +10,8 @@ const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
-// const CheckAssociateService = require("../../services/common/checkAssociateService");
-// const SalesModel = require("../../models/Sales/SalesModel");
+const CheckAssociateService = require("../../services/common/checkAssociateService");
+const SalesModel = require("../../models/Sales/SalesModel");
 // const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Customers
@@ -50,7 +50,7 @@ exports.CustomersDropDown = async (req, res) => {
 exports.DeleteCustomers = async (req, res) => {
   let DeleteId = req.params.id;
   let {ObjectId} = mongoose.Types;
-  let CheckAssociate = await CheckAssociateService({CustomerID:ObjectId(DeleteId)},SalesModel);
+  let CheckAssociate = await CheckAssociateService({CustomerID: new ObjectId(DeleteId)},SalesModel);
 
   if (CheckAssociate) {
     res.status(200).json({status: "associate", data: "Associate with Product"});
