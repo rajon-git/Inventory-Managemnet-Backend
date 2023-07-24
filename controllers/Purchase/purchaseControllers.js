@@ -17,3 +17,29 @@ exports.CreatePurchases = async (req, res) => {
   res.status(200).json(Result);
 };
 
+// Purchases List
+exports.PurchasesList = async (req, res) => {
+  let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
+  let SearchArray = [
+    { Note: SearchRgx },
+    { "suppliers.Name": SearchRgx },
+    { "suppliers.Address": SearchRgx },
+    { "suppliers.Phone": SearchRgx },
+    { "suppliers.Email": SearchRgx },
+  ];
+  let JoinStage = {
+    $lookup: {
+      from: "suppliers",
+      localField: "SupplierID",
+      foreignField: "_id",
+      as: "suppliers",
+    },
+  };
+  let result = await ListOneJoinService(
+    req,
+    ParentModel,
+    SearchArray,
+    JoinStage
+  );
+  res.status(200).json(result);
+};
