@@ -87,7 +87,7 @@ router.get("/deletePurchase/:id",AuthVerifyMiddleware,PurchasesController.Delete
 // Sales
 router.post("/createSales",AuthVerifyMiddleware,SalesController.CreateSales);
 router.get("/salesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,SalesController.SalesList);
-// router.get("/deleteSales/:id",AuthVerifyMiddleware,SalesController.DeleteSales);
+router.get("/deleteSales/:id",AuthVerifyMiddleware,SalesController.DeleteSales);
 
 // Return 
 router.post("/createReturn",AuthVerifyMiddleware,ReturnController.CreateReturn);
