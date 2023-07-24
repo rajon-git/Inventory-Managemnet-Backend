@@ -37,4 +37,18 @@ exports.BrandDropDown = async (req, res) => {
     res.status(200).json(result);
   };
 
+// Delete Brand
+exports.DeleteBrand = async (req, res) => {
+  let DeleteId = req.params.id;
+  let {ObjectId} = mongoose.Types;
+  let CheckAssociate = await CheckAssociateService({BrandID:ObjectId(DeleteId)},ProductModel);
+
+  if (CheckAssociate) {
+    res.status(200).json({status: "associate", data: "Associate with Product"});
+  } else {
+    let result = await DeleteService(req,BrandModel)
+    res.status(200).json(result);
+  }
+};
+
 // module.exporst= {BrandDropDown,BrandList,UpdateBrand,CreateBrand}
