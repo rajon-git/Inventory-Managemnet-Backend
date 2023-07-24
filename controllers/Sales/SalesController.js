@@ -48,4 +48,15 @@ exports.SalesList = async (req, res) => {
     
     res.status(200).json(result);
   };
+
+// Delete Sales
+exports.DeleteSales = async (req, res) => {
+    let Result = await DeleteParentChildeService(
+      req,
+      ParentModel,
+      ChildeModel,
+      "SaleID"
+    );
+    res.status(200).json(Result);
+  };
   
