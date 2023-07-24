@@ -48,3 +48,13 @@ exports.ReturnList = async (req, res) => {
     res.status(200).json(result);
   };
   
+// Delete Return
+exports.DeleteReturn = async (req, res) => {
+    let Result = await DeleteParentChildeService(
+      req,
+      ParentModel,
+      ChildeModel,
+      "ReturnID"
+    );
+    res.status(200).json(Result);
+  };
