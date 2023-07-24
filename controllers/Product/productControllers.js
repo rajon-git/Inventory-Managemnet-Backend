@@ -73,4 +73,38 @@ exports.CreateProduct = async (req, res) => {
     res.status(200).json(result);
   };
   
-  
+
+// Delete Product
+exports.DeleteProduct = async (req, res) => {
+  let DeleteId = req.params.id;
+  let { ObjectId } = mongoose.Types;
+  let CheckAssociate = await CheckAssociateService(
+    { ProductID: ObjectId(DeleteId) },
+    PurchaseProductsModel
+  );
+  let CheckAssociate1 = await CheckAssociateService(
+    { ProductID: ObjectId(DeleteId) },
+    SaleProductsModel
+  );
+  let CheckAssociate2 = await CheckAssociateService(
+    { ProductID: ObjectId(DeleteId) },
+    ReturnProductsModel
+  );
+
+  if (CheckAssociate) {
+    res
+      .status(200)
+      .json({ status: "associate", data: "Associate with Product" });
+  } else if (CheckAssociate1) {
+    res
+      .status(200)
+      .json({ status: "associate", data: "Associate with Product" });
+  } else if (CheckAssociate2) {
+    res
+      .status(200)
+      .json({ status: "associate", data: "Associate with Product" });
+  } else {
+    let result = await DeleteService(req, ProductModel);
+    res.status(200).json(result);
+  }
+};
