@@ -14,6 +14,7 @@ const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const ExpenseModel = require("../../models/Expense/ExpensesModel");
+const DeleteService = require("../../services/common/deleteService");
 
 
 // Create ExpenseTypes
@@ -43,5 +44,18 @@ exports.ExpenseTypesDropDown = async (req, res) => {
   };
 
 
+  // Delete ExpenseTypes
+exports.DeleteExpenseTypes = async (req, res) => {
+  let DeleteId = req.params.id;
+  let {ObjectId} = mongoose.Types;
+  let CheckAssociate = await CheckAssociateService({TypeID:ObjectId(DeleteId)},ExpenseModel);
+
+  if (CheckAssociate) {
+    res.status(200).json({status: "associate", data: "Associate with Product"});
+  } else {
+    let result = await DeleteService(req, ExpenseTypesModel)
+    res.status(200).json(result);
+  }
+};
 
 
