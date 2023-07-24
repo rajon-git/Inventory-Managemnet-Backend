@@ -13,11 +13,11 @@ const CreateService = require("../../services/common/CreateService");
 const ListTwoJoinService = require("../../services/common/listTwoJoinService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
-const CheckAssociateService = require("../../services/common/checkAssociateService");
+
 const SaleProductsModel = require("../../models/Sales/SalesProductsModel");
-const ReturnProductsModel = require("../../models/Return/ReturnProductsModel");
-const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
-const DetailsByIDService = require("../../services/common/detailsByIdService");
+const ReturnProductsModel = require("../../models/Return/ReturnsProductsModel");
+const PurchaseProductsModel = require("../../models/Purchases/PurchaseProdutsModel");
+// const DetailsByIDService = require("../../services/common/detailsByIdService");
 const DropDownService = require("../../services/common/DropDownService");
 
 // Create Product
