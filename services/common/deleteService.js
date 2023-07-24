@@ -7,7 +7,7 @@
 const DeleteService = async (req, Model) => {
     try {
       let DeleteID = req.params.id;
-      let UserEmail = req.headers["email"];
+      let UserEmail = req.headers["UserEmail"];
   
       // Second Process
       let QueryObj = {};
