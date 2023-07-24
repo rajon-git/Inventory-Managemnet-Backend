@@ -92,5 +92,5 @@ router.get("/salesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,Sal
 // Return 
 router.post("/createReturn",AuthVerifyMiddleware,ReturnController.CreateReturn);
 router.get("/returnList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ReturnController.ReturnList);
-// router.get("/deleteReturn/:id",AuthVerifyMiddleware,ReturnController.DeleteReturn);
+router.get("/deleteReturn/:id",AuthVerifyMiddleware,ReturnController.DeleteReturn);
 module.exports = router;
