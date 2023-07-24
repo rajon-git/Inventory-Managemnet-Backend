@@ -43,3 +43,14 @@ exports.PurchasesList = async (req, res) => {
   );
   res.status(200).json(result);
 };
+
+// Delete Purchases
+exports.DeletePurchases = async (req, res) => {
+  let Result = await DeleteParentChildeService(
+    req,
+    ParentModel,
+    ChildeModel,
+    "PurchaseID"
+  );
+  res.status(200).json(Result);
+};
