@@ -3,7 +3,7 @@
 //data base import
 const { mongoose } = require("mongoose");
 const CategoriesModel = require("../../models/Categories/CategoriesModel");
-const ProductModel = require("../../models/Products/ProductModule");
+const ProductModel = require("../../models/Products/ProductModel");
 
 // common services import
 const CreateService = require("../../services/common/CreateService");
