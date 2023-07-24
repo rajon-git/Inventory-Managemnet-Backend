@@ -30,7 +30,7 @@ router.post("/createBrand",AuthVerifyMiddleware,BrandsControllers.CreateBrand);
 router.post("/updateBrand/:id",AuthVerifyMiddleware,BrandsControllers.UpdateBrand);
 router.get("/brandList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,BrandsControllers.BrandList);
 router.get("/brandDropDown",AuthVerifyMiddleware,BrandsControllers.BrandDropDown);
-
+router.get("/deleteBrand/:id",AuthVerifyMiddleware,BrandsControllers.DeleteBrand);
 
 // Categories Routing
 router.post("/createCategories",AuthVerifyMiddleware,CategoriesControllers.CreateCategories);
