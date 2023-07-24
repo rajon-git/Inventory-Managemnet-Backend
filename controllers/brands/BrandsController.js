@@ -1,6 +1,7 @@
 const mongoose  = require("mongoose");
 const UserModel=require("../../models/Users/UsersModel")
 const BrandModel = require("../../models/Brand/BrandsModel");
+const ProductModel = require("../../models/Products/ProductModel");
 
 
 // common services import
@@ -9,6 +10,7 @@ const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
+const CheckAssociateService = require("../../services/common/checkAssociateService");
 
 
 // create brand
@@ -42,7 +44,7 @@ exports.BrandDropDown = async (req, res) => {
 exports.DeleteBrand = async (req, res) => {
   let DeleteId = req.params.id;
   let {ObjectId} = mongoose.Types;
-  let CheckAssociate = await CheckAssociateService({BrandID:ObjectId(DeleteId)},ProductModel);
+  let CheckAssociate = await CheckAssociateService({BrandID: new ObjectId(DeleteId)},ProductModel);
 
   if (CheckAssociate) {
     res.status(200).json({status: "associate", data: "Associate with Product"});
