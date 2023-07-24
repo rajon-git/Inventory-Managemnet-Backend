@@ -46,8 +46,8 @@ exports.UpdateExpense = async (req, res) => {
 
 
 
-// // Delete Expense
-// exports.DeleteExpense = async (req, res) => {
-//   let result = await DeleteService(req, ExpenseModel);
-//   res.status(200).json(result);
-// };
+// Delete Expense
+exports.DeleteExpense = async (req, res) => {
+  let result = await DeleteService(req, ExpenseModel);
+  res.status(200).json(result);
+};
