@@ -37,7 +37,7 @@ router.post("/createCategories",AuthVerifyMiddleware,CategoriesControllers.Creat
 router.post("/updateCategories/:id",AuthVerifyMiddleware,CategoriesControllers.UpdateCategories);
 router.get("/categoriesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CategoriesControllers.CategoriesList);
 router.get("/categoriesDropDown",AuthVerifyMiddleware,CategoriesControllers.CategoriesDropDown);
-// router.get("/deleteCategories/:id",AuthVerifyMiddleware,CategoriesControllers.DeleteCategories);
+router.get("/deleteCategories/:id",AuthVerifyMiddleware,CategoriesControllers.DeleteCategories);
 // router.get("/categoriesDetails/:id",AuthVerifyMiddleware,CategoriesControllers.CategoriesDetails);
 
 // Customers Routing
