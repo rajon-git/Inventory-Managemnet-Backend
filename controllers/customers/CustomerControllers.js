@@ -9,7 +9,7 @@ const CreateService = require("../../services/common/CreateService");
 const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
-// const DeleteService = require("../../services/common/deleteService");
+const DeleteService = require("../../services/common/deleteService");
 // const CheckAssociateService = require("../../services/common/checkAssociateService");
 // const SalesModel = require("../../models/Sales/SalesModel");
 // const DetailsByIDService = require("../../services/common/detailsByIdService");
@@ -46,16 +46,16 @@ exports.CustomersDropDown = async (req, res) => {
   res.status(200).json(result);
 };
 
-// // Delete Categories
-// exports.DeleteCustomers = async (req, res) => {
-//   let DeleteId = req.params.id;
-//   let {ObjectId} = mongoose.Types;
-//   let CheckAssociate = await CheckAssociateService({CustomerID:ObjectId(DeleteId)},SalesModel);
+// Delete Categories
+exports.DeleteCustomers = async (req, res) => {
+  let DeleteId = req.params.id;
+  let {ObjectId} = mongoose.Types;
+  let CheckAssociate = await CheckAssociateService({CustomerID:ObjectId(DeleteId)},SalesModel);
 
-//   if (CheckAssociate) {
-//     res.status(200).json({status: "associate", data: "Associate with Product"});
-//   } else {
-//     let result = await DeleteService(req, CustomersModel)
-//     res.status(200).json(result);
-//   }
-// };
+  if (CheckAssociate) {
+    res.status(200).json({status: "associate", data: "Associate with Product"});
+  } else {
+    let result = await DeleteService(req, CustomersModel)
+    res.status(200).json(result);
+  }
+};
