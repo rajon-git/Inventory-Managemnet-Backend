@@ -16,7 +16,7 @@ const ParentChildeService = async ( req,ParentModel,ChildeModel,JoinPropertyName
 
     // First DataBase Process
     let Parent = req.body["Parent"];
-    Parent.UserEmail = req.headers["email"];
+    Parent.UserEmail = req.headers["UserEmail"];
     let ParentCreation = await ParentModel.create([Parent], { session });
 
     // Second Database Process
