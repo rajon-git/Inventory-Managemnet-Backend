@@ -9,8 +9,8 @@ const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
-// const CheckAssociateService = require("../../services/common/checkAssociateService");
-// const PurchaseModel = require("../../models/Purchases/PurchasesModel");
+const CheckAssociateService = require("../../services/common/checkAssociateService");
+const PurchaseModel = require("../../models/Purchases/PurchasesModel");
 // const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Suppliers
@@ -50,7 +50,7 @@ exports.SuppliersDropDown = async (req, res) => {
 exports.DeleteSuppliers = async (req, res) => {
   let DeleteId = req.params.id;
   let {ObjectId} = mongoose.Types;
-  let CheckAssociate = await CheckAssociateService({SupplierID:ObjectId(DeleteId)},PurchaseModel);
+  let CheckAssociate = await CheckAssociateService({SupplierID: new ObjectId(DeleteId)},PurchaseModel);
 
   if (CheckAssociate) {
     res.status(200).json({status: "associate", data: "Associate with Product"});
