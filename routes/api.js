@@ -68,7 +68,7 @@ router.get("/expenseTypeDropDown",AuthVerifyMiddleware,ExpenseType.ExpenseTypesD
 router.post("/createExpense",AuthVerifyMiddleware,Expenses.CreateExpense);
 router.post("/updateExpense/:id",AuthVerifyMiddleware,Expenses.UpdateExpense);
 router.get("/expenseList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,Expenses.ExpenseList);
-// router.get("/deleteExpense/:id",AuthVerifyMiddleware,Expenses.DeleteExpense);
+router.get("/deleteExpense/:id",AuthVerifyMiddleware,Expenses.DeleteExpense);
 // router.get("/expenseDetails/:id",AuthVerifyMiddleware,Expenses.ExpenseDetails);
 
 // Product Routing
