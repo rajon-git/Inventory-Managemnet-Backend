@@ -20,3 +20,31 @@ exports.CreateReturn = async (req, res) => {
     );
     res.status(200).json(Result);
   };
+
+  // Return List
+exports.ReturnList = async (req, res) => {
+    let SearchRgx = { $regex: req.params.searchKeyword, $options: "i" };
+    let SearchArray = [
+      { Note: SearchRgx },
+      { "customers.CustomerName": SearchRgx },
+      { "customers.Address": SearchRgx },
+      { "customers.Phone": SearchRgx },
+      { "customers.Email": SearchRgx },
+    ];
+    let JoinStage = {
+      $lookup: {
+        from: "customers",
+        localField: "CustomerID",
+        foreignField: "_id",
+        as: "customers",
+      },
+    };
+    let result = await ListOneJoinService(
+      req,
+      ParentModel,
+      SearchArray,
+      JoinStage
+    );
+    res.status(200).json(result);
+  };
+  
