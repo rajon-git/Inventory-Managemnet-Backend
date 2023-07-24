@@ -11,7 +11,7 @@ const DropDownService = require("../../services/common/DropDownService");
 const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
-// const CheckAssociateService = require("../../services/common/checkAssociateService");
+const CheckAssociateService = require("../../services/common/checkAssociateService");
 // const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Categories
