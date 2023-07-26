@@ -38,6 +38,11 @@ exports.ProductDetails = async (req, res) => {
   res.status(200).json(result);
 };
 
+// ProductsDropDown
+exports.ProductsDropDown = async (req, res) => {
+  let Result= await DropDownService(req,ProductModel,{_id:1,Name:1});
+  res.status(200).json(Result);
+}
 
   // Product List
   exports.ProductList = async (req, res) => {
