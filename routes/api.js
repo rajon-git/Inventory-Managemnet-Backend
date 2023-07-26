@@ -15,6 +15,7 @@ const PurchasesController=require("../controllers/Purchase/purchaseControllers")
 const SalesController=require("../controllers/Sales/SalesController")
 const ReturnController=require("../controllers/Return/ReturnController")
 const ReportController=require("../controllers/Report/reportControllers")
+
 // users Router
 router.post("/registration",Registration);
 router.post("/login",Login);
@@ -98,6 +99,6 @@ router.get("/deleteReturn/:id",AuthVerifyMiddleware,ReturnController.DeleteRetur
 // Report
 router.post("/expensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
 // router.post("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
-// router.post("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
+router.post("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
 // router.post("/salesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
 module.exports = router;
