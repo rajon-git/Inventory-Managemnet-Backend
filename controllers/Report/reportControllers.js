@@ -26,3 +26,9 @@ exports.ReturnByDate = async (req, res) => {
   let result = await ReturnReportService(req);
   return res.status(200).json(result);
 };
+
+// Sales Report By Date
+exports.SalesByDate = async (req, res) => {
+  let result = await SalesReportService(req);
+  return res.status(200).json(result);
+};
