@@ -8,7 +8,7 @@ const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsMo
 
 const PurchasesReportService = async (req) => {
   try {
-    let UserEmail = req.headers["email"];
+    let UserEmail = req.headers["UserEmail"];
     let { FormDate, ToDate } = req.body;
 
     const data = await PurchaseProductsModel.aggregate([

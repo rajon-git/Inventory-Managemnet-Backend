@@ -14,3 +14,9 @@ exports.ExpensesByDate = async (req, res) => {
   let result = await ExpenseReportService(req);
   return res.status(200).json(result);
 };
+
+// Purchase Report By Date
+exports.PurchaseByDate = async (req, res) => {
+  let result = await PurchasesReportService(req);
+  return res.status(200).json(result);
+};
