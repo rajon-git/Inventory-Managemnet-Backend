@@ -9,7 +9,7 @@ const ListOneJoinService = async (req, dataModel, SearchArray, JoinStage) => {
       let pageNo = Number(req.params.pageNo);
       let perPage = Number(req.params.perPage);
       let searchValue = req.params.searchKeyword;
-      let UserEmail = req.headers["email"];
+      let UserEmail = req.headers["UserEmail"];
   
       let skipRow = (pageNo - 1) * perPage;
   
