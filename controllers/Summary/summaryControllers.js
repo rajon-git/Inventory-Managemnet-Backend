@@ -15,3 +15,10 @@ exports.ExpensesSummary=async (req, res) => {
     res.status(200).json(Result);
 }
 
+// ReturnSummary
+exports.ReturnSummary=async (req, res) => {
+    let Result=await ReturnSummaryService(req)
+    res.status(200).json(Result);
+}
+
+
