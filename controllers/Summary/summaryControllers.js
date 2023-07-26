@@ -27,4 +27,8 @@ exports.PurchaseSummary=async (req, res) => {
     res.status(200).json(Result);
 }
 
-
+// SalesSummary
+exports.SalesSummary=async (req, res) => {
+    let Result=await SalesSummaryService(req)
+    res.status(200).json(Result);
+}
