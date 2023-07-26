@@ -15,6 +15,7 @@ const PurchasesController=require("../controllers/Purchase/purchaseControllers")
 const SalesController=require("../controllers/Sales/SalesController")
 const ReturnController=require("../controllers/Return/ReturnController")
 const ReportController=require("../controllers/Report/reportControllers")
+const SummaryController=require("../controllers/Summary/summaryControllers")
 
 // users Router
 router.post("/registration",Registration);
@@ -101,4 +102,11 @@ router.post("/expensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDa
 router.post("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
 router.post("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
 router.post("/salesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
+
+// Summary
+router.get("/expensesSummary",AuthVerifyMiddleware,SummaryController.ExpensesSummary);
+router.get("/returnSummary",AuthVerifyMiddleware,SummaryController.ReturnSummary);
+router.get("/purchaseSummary",AuthVerifyMiddleware,SummaryController.PurchaseSummary);
+router.get("/salesSummary",AuthVerifyMiddleware,SummaryController.SalesSummary);
+
 module.exports = router;
