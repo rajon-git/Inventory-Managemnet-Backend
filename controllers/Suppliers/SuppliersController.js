@@ -11,7 +11,7 @@ const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
 const PurchaseModel = require("../../models/Purchases/PurchasesModel");
-// const DetailsByIDService = require("../../services/common/detailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Suppliers
 exports.CreateSuppliers = async (req, res) => {
@@ -19,11 +19,11 @@ exports.CreateSuppliers = async (req, res) => {
   res.status(201).json(result);
 };
 
-// // Categories Details
-// exports.SuppliersDetails = async (req, res) => {
-//   let result = await DetailsByIDService(req,SuppliersModel);
-//   res.status(200).json(result);
-// };
+// SuppliersDetails
+exports.SuppliersDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,SuppliersModel);
+  res.status(200).json(result);
+};
 
 // Update Suppliers
 exports.UpdateSuppliers = async (req, res) => {
