@@ -55,7 +55,7 @@ router.post("/updateSuppliers/:id",AuthVerifyMiddleware,SuppliersControllers.Upd
 router.get("/suppliersList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,SuppliersControllers.SuppliersList);
 router.get("/suppliersDropDown",AuthVerifyMiddleware,SuppliersControllers.SuppliersDropDown);
 router.get("/deleteSupplier/:id",AuthVerifyMiddleware,SuppliersControllers.DeleteSuppliers);
-// router.get("/supplierDetails/:id",AuthVerifyMiddleware,SuppliersControllers.SuppliersDetails);
+router.get("/supplierDetails/:id",AuthVerifyMiddleware,SuppliersControllers.SuppliersDetails);
 
 // Expense Types Routing
 router.post("/createExpenseType",AuthVerifyMiddleware,ExpenseType.CreateExpenseTypes);
@@ -63,7 +63,7 @@ router.post("/updateExpenseType/:id",AuthVerifyMiddleware,ExpenseType.UpdateExpe
 router.get("/expenseTypeList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ExpenseType.ExpenseTypesList);
 router.get("/expenseTypeDropDown",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDropDown);
 router.get("/deleteExpenseType/:id",AuthVerifyMiddleware,ExpenseType.DeleteExpenseTypes);
-//router.get("/expenseTypeDetails/:id",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDetails);
+router.get("/expenseTypeDetails/:id",AuthVerifyMiddleware,ExpenseType.ExpenseTypesDetails);
 
 // Expense Routing
 router.post("/createExpense",AuthVerifyMiddleware,Expenses.CreateExpense);
