@@ -4,7 +4,7 @@
  * Auth: Rajon
  */
 
-const PurchaseProductsModel = require("../../models/Purchases/PurchaseProductsModel");
+const PurchaseProductsModel = require("../../models/Purchases/PurchaseProdutsModel");
 
 const PurchasesReportService = async (req) => {
   try {
