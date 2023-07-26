@@ -31,30 +31,36 @@ const Login = async (req, res) => {
   res.status(200).json(result);
 };
 
+// profile details
 const Read = async (req, res) => {
   let result = await UserDetailsService(req, UserModel);
   // user Response
   res.status(200).json(result);
 };
 
+//update profile
 const UpdateProfile = async (req, res) => {
   let result = await UserUpdateService(req, UserModel);
   // user Response
   res.status(200).json(result);
 };
 
+
+//verify email
 const VerifyEmail = async (req, res) => {
   let result = await UserVerifyEmailService(req, UserModel);
   // user Response
   res.status(200).json(result);
 };
 
+//verify otp
 const VerifyOtp = async (req, res) => {
   let result = await UserOtpVerifyService(req, OTPSModel);
   // user Response
   res.status(200).json(result);
 };
 
+//reset password
 const ResetPassword = async (req, res) => {
   let result = await UserResetPassService(req, UserModel);
   // user Response
