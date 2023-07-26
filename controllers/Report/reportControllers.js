@@ -20,3 +20,9 @@ exports.PurchaseByDate = async (req, res) => {
   let result = await PurchasesReportService(req);
   return res.status(200).json(result);
 };
+
+// Return Report By Date
+exports.ReturnByDate = async (req, res) => {
+  let result = await ReturnReportService(req);
+  return res.status(200).json(result);
+};
