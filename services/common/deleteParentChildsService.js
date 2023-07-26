@@ -16,7 +16,7 @@ const DeleteParentChildeService = async (req,ParentModel,ChildeModel,JoinPropert
 
     // Parent Creation
     let DeleteID = req.params.id;
-    let UserEmail = req.headers["email"];
+    let UserEmail = req.headers["UserEmail"];
 
     // First Process
     let ParentObj = {};
