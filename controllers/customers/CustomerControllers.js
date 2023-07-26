@@ -12,7 +12,7 @@ const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
 const SalesModel = require("../../models/Sales/SalesModel");
-// const DetailsByIDService = require("../../services/common/detailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Customers
 exports.CreateCustomers = async (req, res) => {
@@ -20,11 +20,11 @@ exports.CreateCustomers = async (req, res) => {
   res.status(201).json(result);
 };
 
-// // Categories Details
-// exports.CustomersDetails = async (req, res) => {
-//   let result = await DetailsByIDService(req,CustomersModel);
-//   res.status(200).json(result);
-// };
+// Categories Details
+exports.CustomersDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,CustomersModel);
+  res.status(200).json(result);
+};
 
 // Update Customers
 exports.UpdateCustomers = async (req, res) => {
