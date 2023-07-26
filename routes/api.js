@@ -77,8 +77,8 @@ router.post("/createProduct",AuthVerifyMiddleware,ProductController.CreateProduc
 router.post("/updateProduct/:id",AuthVerifyMiddleware,ProductController.UpdateProduct);
 router.get("/productList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,ProductController.ProductList);
 router.get("/deleteProduct/:id",AuthVerifyMiddleware,ProductController.DeleteProduct);
-// router.get("/productDetails/:id",AuthVerifyMiddleware,ProductController.ProductDetails);
-// router.get("/productDropDown",AuthVerifyMiddleware,ProductController.ProductsDropDown);
+router.get("/productDetails/:id",AuthVerifyMiddleware,ProductController.ProductDetails);
+router.get("/productDropDown",AuthVerifyMiddleware,ProductController.ProductsDropDown);
 
 // Purchases
 router.post("/createPurchases",AuthVerifyMiddleware,PurchasesController.CreatePurchases);
