@@ -27,8 +27,6 @@ router.get("/verifyOtp/:email/:otp",VerifyOtp)
 router.post("/resetPassword",ResetPassword)
 
 //brand 
-
-
 router.post("/createBrand",AuthVerifyMiddleware,BrandsControllers.CreateBrand);
 router.post("/updateBrand/:id",AuthVerifyMiddleware,BrandsControllers.UpdateBrand);
 router.get("/brandList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,BrandsControllers.BrandList);
@@ -41,7 +39,7 @@ router.post("/updateCategories/:id",AuthVerifyMiddleware,CategoriesControllers.U
 router.get("/categoriesList/:pageNo/:perPage/:searchKeyword",AuthVerifyMiddleware,CategoriesControllers.CategoriesList);
 router.get("/categoriesDropDown",AuthVerifyMiddleware,CategoriesControllers.CategoriesDropDown);
 router.get("/deleteCategories/:id",AuthVerifyMiddleware,CategoriesControllers.DeleteCategories);
-// router.get("/categoriesDetails/:id",AuthVerifyMiddleware,CategoriesControllers.CategoriesDetails);
+router.get("/categoriesDetails/:id",AuthVerifyMiddleware,CategoriesControllers.CategoriesDetails);
 
 // Customers Routing
 router.post("/createCustomers",AuthVerifyMiddleware,CustomersControllers.CreateCustomers);
