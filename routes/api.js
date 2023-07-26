@@ -98,7 +98,7 @@ router.get("/deleteReturn/:id",AuthVerifyMiddleware,ReturnController.DeleteRetur
 
 // Report
 router.post("/expensesByDate",AuthVerifyMiddleware,ReportController.ExpensesByDate);
-// router.post("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
+router.post("/returnByDate",AuthVerifyMiddleware,ReportController.ReturnByDate);
 router.post("/purchaseByDate",AuthVerifyMiddleware,ReportController.PurchaseByDate);
 // router.post("/salesByDate",AuthVerifyMiddleware,ReportController.SalesByDate);
 module.exports = router;
