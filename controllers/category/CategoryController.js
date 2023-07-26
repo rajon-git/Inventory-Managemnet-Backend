@@ -12,7 +12,7 @@ const ListService = require("../../services/common/ListService");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
 const CheckAssociateService = require("../../services/common/checkAssociateService");
-// const DetailsByIDService = require("../../services/common/detailsByIdService");
+const DetailsByIDService = require("../../services/common/detailsByIdService");
 
 // Create Categories
 exports.CreateCategories = async (req, res) => {
@@ -43,6 +43,12 @@ exports.CategoriesList = async (req, res) => {
 // Categories Drop Down
 exports.CategoriesDropDown = async (req, res) => {
   let result = await DropDownService(req, CategoriesModel, { _id: 1, Name: 1 });
+  res.status(200).json(result);
+};
+
+// Categories Details
+exports.CategoriesDetails = async (req, res) => {
+  let result = await DetailsByIDService(req,CategoriesModel);
   res.status(200).json(result);
 };
 
