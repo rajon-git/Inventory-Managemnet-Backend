@@ -4,24 +4,26 @@
  * Auth: Rajon
  */
 
-const  mongoose  = require("mongoose");
+const mongoose = require("mongoose");
+const DetailsByIDService= async (Request,DataModel) => {
+    try{
 
-const DetailsByIDService = async (req, dataModel) => {
-  try {
-    let { id } = req.params;
-    let UserEmail = req.headers["UserEmail"];
+        let id=Request.params.id;
+        let UserEmail=Request.headers['email'];
 
-    const { ObjectId } = mongoose.Types;
-    let QueryObject = {};
-    QueryObject["_id"] = ObjectId(id);
-    QueryObject["UserEmail"] = UserEmail;
+        const ObjectId = mongoose.Types.ObjectId;
+        let QueryObject={};
+        QueryObject['_id']=new ObjectId(id);
+        QueryObject['UserEmail']=UserEmail;
 
-    const data = await dataModel.aggregate([{$match: QueryObject}]);
 
-    return { status: "success", data: data };
-  } catch (error) {
-    return { status: "fail", data: error.message };
-  }
-};
-
-module.exports = DetailsByIDService;
+        let data = await DataModel.aggregate([
+            {$match: QueryObject}
+        ])
+        return {status: "success", data: data}
+    }
+    catch (error) {
+        return {status: "fail", data: error}
+    }
+}
+module.exports=DetailsByIDService
