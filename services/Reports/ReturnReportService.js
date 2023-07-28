@@ -8,7 +8,7 @@ const ReturnProductsModel = require("../../models/Return/ReturnsProductsModel");
 
 const ReturnReportService = async (req) => {
   try {
-    let UserEmail = req.headers["UserEmail"];
+    let UserEmail = req.headers["email"];
     let { FormDate, ToDate } = req.body;
 
     const data = await ReturnProductsModel.aggregate([
