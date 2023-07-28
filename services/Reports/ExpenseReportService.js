@@ -8,7 +8,7 @@ const ExpenseModel = require("../../models/Expense/ExpensesModel");
 
 const ExpenseReportService = async (req) => {
   try {
-    let UserEmail = req.headers["UserEmail"];
+    let UserEmail = req.headers["email"];
     let { FormDate, ToDate } = req.body;
 
     const data = await ExpenseModel.aggregate([
