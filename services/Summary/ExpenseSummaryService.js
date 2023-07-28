@@ -7,7 +7,7 @@ const ExpenseModel = require("../../models/Expense/ExpensesModel");
 
 const ExpenseSummaryService = async (req) => {
   try {
-    let UserEmail = req.headers["UserEmail"];
+    let UserEmail = req.headers["email"];
 
     let data = await ExpenseModel.aggregate([
       {
