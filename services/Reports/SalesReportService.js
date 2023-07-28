@@ -8,7 +8,7 @@ const SaleProductsModel = require("../../models/Sales/SalesProductsModel");
 
 const SalesReportService = async (req) => {
   try {
-    let UserEmail = req.headers["UserEmail"];
+    let UserEmail = req.headers["email"];
     let { FormDate, ToDate } = req.body;
 
     const data = await SaleProductsModel.aggregate([
