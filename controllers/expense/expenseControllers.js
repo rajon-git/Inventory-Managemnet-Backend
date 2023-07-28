@@ -9,7 +9,7 @@ const ExpenseModel = require("../../models/Expense/ExpensesModel");
 
 // common services import
 const CreateService = require("../../services/common/CreateService");
-const ListOneJoinService = require("../../services/common/listOneJoinService");
+const ListOneJoinService = require("../../services/common/listOneExpense");
 const UpdateService = require("../../services/common/UpdateService");
 const DeleteService = require("../../services/common/deleteService");
 const DetailsByIDService = require("../../services/common/detailsByIdService");
