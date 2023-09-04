@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "inventory-backend",
   "version": "1.0.0",
   "description": "Node.js application",
   "main": "server.js",

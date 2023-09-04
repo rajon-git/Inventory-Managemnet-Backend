@@ -39,10 +39,9 @@ app.use('*', (req, res) => {
 
 // Server connection
 const port = process.env.PORT || 8000;
-
 // Database connection
 mongoose
-  .connect(process.env.URL)
+  .connect(process.env.DB_URL)
   .then(() => {
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
