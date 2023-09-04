@@ -1,9 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-       { "src": "server.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-       { "src": "/(.*)", "dest": "/server.js" }
-    ]
- }
+  "version": 2, // Use the V2 configuration format
+  "builds": [
+    {
+      "src": "server.js", // Entry point of your Node.js application
+      "use": "@vercel/node" // Use the Node.js builder
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js" // Map all incoming requests to your Node.js application
+    }
+  ]
+}
