@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "name": "inventory-backend",
     "builds": [
        { "src": "./server.js", "use": "@vercel/node" }
     ],
