@@ -4,10 +4,10 @@
  * Auth: Rajon
 */
 
-const UserCreateService = async (req, UserModel) => {
+const UserCreateService = async (req, dataModel) => {
     try {
       let postBody = req.body;
-      let data = await UserModel.save(postBody);
+      let data = await dataModel.create(postBody);
   
       if (data) {
         return { status: "success", data: data };
