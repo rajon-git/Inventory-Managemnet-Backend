@@ -7,7 +7,7 @@
 const UserCreateService = async (req, UserModel) => {
     try {
       let postBody = req.body;
-      let data = await UserModel.create(postBody);
+      let data = await UserModel.save(postBody);
   
       if (data) {
         return { status: "success", data: data };
